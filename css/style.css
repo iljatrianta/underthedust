@@ -1,0 +1,1456 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+/* custom styles */
+/* Popup open buttons (frame 2 UI) */
+.button-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 15px;
+	margin-top: 30px;
+	padding: 20px;
+	max-width: 600px;
+	width: 100%;
+}
+
+.popup-btn {
+	padding: 12px 24px;
+	font-size: 16px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.popup-btn:hover {
+	background-color: #45a049;
+}
+
+/* -------------------- */
+/* Custom styles (organized)
+   - Keep reset above unchanged
+   - Grouped: Base → Typography → Layout → Frames → Frame-specific → Utilities
+*/
+
+/* Base */
+html,
+body {
+	height: 100%;
+}
+
+body {
+	overflow: hidden;
+	background: #000;
+	color: #fff;
+}
+
+/* Typography */
+.frames h1 {
+	font-family: 'brush-up';
+	font-size: 170px;
+	color: #fff;
+}
+
+.frames h2 {
+	font-family: 'brush-up';
+	font-size: 95px;
+}
+
+.frames h3 {
+	font-family: 'brush-up';
+	font-size: 60px;
+}
+
+.frames h4 {
+	font-family: 'brush-up';
+	font-size: 300px;
+	color: #fff;
+}
+
+.frames p {
+	font-family: "Bahnschrift";
+	font-size: 32px;
+	color: #fff;
+	font-weight: 400;
+	line-height: 35px;
+}
+
+.frames p span {
+	font-family: 'brush-up';
+	font-size: 60px;
+}
+
+.frames h1,
+.frames h2,
+.frames h3,
+.frames h4,
+.frames p {
+	z-index: 5;
+}
+
+
+img.bg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0.6;
+}
+
+/* Layout: frames container */
+.frames {
+	display: flex;
+	height: 100vh;
+	width: 100%;
+	overflow-x: auto;
+	overflow-y: hidden;
+	-webkit-overflow-scrolling: touch;
+	cursor: grab;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.frames * {
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.frames.grabbing {
+	cursor: grabbing;
+}
+
+
+.frame {
+	flex: 0 0 100vw;
+	height: 100vh;
+	display: flex;
+	font-size: 2rem;
+	color: #fff;
+	background: #181818;
+	position: relative;
+	overflow: hidden;
+}
+
+/* Frame 2: centered video with 100px margin around (same as frame 4) */
+.frame-2 { background: #181818; justify-content: center; align-items: center; }
+.frame-2 .yt-embed {
+	margin: 100px;
+	border: 0;
+	aspect-ratio: 16 / 9;
+	width: min(calc(100vw - 200px), calc((100vh - 200px) * 1.7778));
+	height: auto;
+}
+
+/* Frame 4: centered video with 100px margin around */
+.frame-4 { background: #181818; justify-content: center; align-items: center; }
+.frame-4 .yt-embed {
+	margin: 100px;
+	border: 0;
+	aspect-ratio: 16 / 9;
+	width: min(calc(100vw - 200px), calc((100vh - 200px) * 1.7778));
+	height: auto;
+}
+
+/* Minimal controls overlay for YouTube embeds */
+.yt-controls {
+	position: absolute;
+	bottom: 45px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	gap: 10px;
+	z-index: 1000;
+}
+
+/* Prevent YouTube iframe from receiving pointer events to avoid showing UI overlays */
+.yt-embed { pointer-events: none; }
+
+.yt-controls .yt-btn {
+	appearance: none;
+	border: 0;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	background: rgba(255,255,255,0.95);
+	box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+	cursor: pointer;
+}
+
+.yt-controls .yt-btn:hover { filter: brightness(0.92); }
+
+.yt-controls .yt-icon {
+	width: 20px;
+	height: 20px;
+	display: block;
+	fill: #000;
+}
+
+
+.frame-1 img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0.65;
+	z-index: 1;
+	display: block;
+}
+
+.frame-1 .text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+	color: #fff;
+	text-align: center;
+	padding: 0 1rem;
+}
+
+
+.frame-3 img {
+	position: absolute;
+	z-index: 1;
+	bottom: 0;
+	right: 0;
+}
+
+.frame-3 p {
+	position: absolute;
+	left: 100px;
+	top: 150px;
+	z-index: 2;
+	color: #fff;
+	width: 800px;
+}
+
+.frame-3 p span {
+	color: #FFC95E;
+}
+
+.frame-3 svg {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	width: 300px;
+	height: auto;
+}
+
+.frame-5 h4 {
+	color: #B4152A;
+	margin-top: 50px;
+	margin-left: 150px;
+	margin-bottom: 0px;
+}
+
+.frame-5 p {
+	margin-left: 150px;
+	width: 700px;
+}
+
+.frame-5 svg {
+	position: absolute;
+	top: 0;
+	right: -80PX;
+	z-index: 1;
+	width: 135px;
+	height: 100%;
+}
+
+.frame-5 {
+	flex-direction: column;
+	align-items: flex-start;
+	overflow: visible;
+}
+
+.frame-6 p {
+	margin-top: 100px;
+	margin-left: 150px;
+	width: 700px;
+}
+
+.frame-6 h2 {
+	position: absolute;
+	color: #B4152A;
+	bottom: 170px;
+	margin-left: 500px;
+	width: 300px;
+}
+
+.frame-6 img {
+	position: absolute;
+	bottom: 50px;
+	right: -100px;
+	width: 900px;
+	height: auto;
+	z-index: 1;
+}
+
+.frame-6 {
+	flex-direction: column;
+	align-items: flex-start;
+	overflow: visible;
+}
+
+.frame-7 svg {
+	position: absolute;
+	bottom: 0;
+	right: 150px;
+	z-index: 1;
+	width: 500px;
+	height: auto;
+}
+
+.frame-7 p {
+	position: absolute;
+	margin-top: 100px;
+	right: 150px;
+	width: 300px;
+	text-align: right;
+}
+
+.frame-7 span {
+	color: #027DCD;
+}
+
+.frame-8 p {
+	width: 1000px;
+	text-align: center;
+	margin: auto auto;
+}
+
+.frame-8 span {
+	color: #027DCD;
+}
+
+.frame-8 svg {
+	position: absolute;
+	top: 0;
+	right: -150px;
+	z-index: 1;
+	height: 100%;
+}
+
+.frame-8 {
+	overflow: visible;
+}
+
+
+.frame-9 h2 {
+	position: absolute;
+	left: 10px;
+	bottom: 300px;
+}
+
+.frame-9 p {
+	position: absolute;
+	right: 200px;
+	top: 100px;
+	width: 400px;
+}
+
+
+.frame-10 {
+	flex-direction: column;
+	overflow: visible;
+}
+
+.frame-10 h4 {
+	margin-top: 20px;
+	margin-left: 200px;
+	color: #7C2B88;
+}
+
+.frame-10 p {
+	margin-left: 230px;
+	margin-top: 20px;
+	width: 400px;
+}
+
+.frame-10 svg {
+	position: absolute;
+	bottom: 0;
+	left: -100px;
+	z-index: 2;
+	width: 1000;
+	height: auto;
+}
+
+.frame-10 img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 900px;
+	height: auto;
+	z-index: 1;
+}
+
+.frame-11 svg {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	transform: translateX(-50%);
+	z-index: 1;
+	height: 100%;
+}
+
+.frame-11 h4 {
+	position: absolute;
+	bottom: 40%;
+	left: 40%;
+	transform: translate(-50%, 50%);
+	z-index: 2;
+	color: #fff;
+	text-align: center;
+	padding: 0 1rem;
+	color: #7C2B88;
+}
+
+.frame-11 .a {
+	position: absolute;
+	top: 20%;
+	left: 25%;
+	transform: translate(-50%, 50%);
+	z-index: 2;
+	color: #fff;
+	text-align: center;
+}
+
+.frame-11 .b {
+	position: absolute;
+	bottom: 20%;
+	left: 55%;
+	transform: translate(-50%, 50%);
+	z-index: 2;
+	color: #fff;
+	text-align: center;
+}
+
+.frame-12 .images {
+	right: 0;
+	width: 600px;
+	position: absolute;
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.frame-12 .images img {
+	height: 50%;
+	z-index: 2;
+}
+
+.frame-12 p {
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+	color: #fff;
+	width: 600px;
+	text-align: center;
+}
+
+.frame-12 .a {
+	position: absolute;
+	right: 300px;
+	top: 20px;
+	z-index: 1
+}
+
+.frame-12 .b {
+	position: absolute;
+	right: -200px;
+	bottom: 20px;
+	z-index: 1;
+
+}
+
+.frame-12 {
+	overflow: visible;
+}
+
+.frame-13 h3 {
+	position: absolute;
+	top: 70px;
+	left: 70px;
+	width: 600px;
+	color: #1F88CC;
+	font-size: 50px;
+}
+
+.frame-13 svg.blue {
+	position: absolute;
+	z-index: 1;
+	height: 100%;
+	left: 60%;
+	transform: translateX(-50%);
+}
+
+.frame-13 svg.pink {
+	position: absolute;
+	z-index: 1;
+	height: 100%;
+	right: -40px;
+}
+
+.frame-13 p {
+	position: absolute;
+	top: 35%;
+	transform: translateY(-50%);
+	right: 180px;
+	width: 400px;
+}
+
+.frame-14 img {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 800px;
+	height: auto;
+	z-index: 1;
+}
+
+.frame-14 h4 {
+	color: #E74477;
+	margin-top: 40px;
+	margin-left: 650px;
+	margin-bottom: 0px;
+}
+
+.frame-14 p {
+	position: absolute;
+	margin-left: 850px;
+	top: 350px;
+	width: 600px;
+}
+
+.frame-15 img {
+	position: absolute;
+	left: 250px;
+	width: 450px;
+	height: auto;
+	z-index: 1;
+}
+
+.frame-15 .a {
+	top: 100px;
+	z-index: 2;
+}
+
+.frame-15 .b {
+	bottom: 100px;
+	right: 100px;
+	z-index: 2;
+}
+
+.frame-15 svg {
+	position: absolute;
+	left: 150px;
+	height: 100%;
+}
+
+.frame-15 p {
+	position: absolute;
+	top: 30%;
+	right: 250px;
+	transform: translateY(-50%);
+	width: 400px;
+}
+
+.frame-16 p {
+	position: absolute;
+	left: 150px;
+	bottom: 150px;
+	width: 630px;
+}
+
+.frame-16 svg {
+	position: absolute;
+	top: -40px;
+	right: 150px;
+	width: 500px;
+}
+
+.frame-18 img {
+	position: absolute;
+	left: 200px;
+	width: 500px;
+	z-index: 2;
+}
+
+.frame-18 .a {
+	top: 100px;
+}
+
+.frame-18 .b {
+	bottom: 100px;
+}
+
+.frame-18 p {
+	position: absolute;
+	left: 800px;
+	width: 510px;
+	top: 250px;
+}
+
+.frame-18 .c {
+	position: absolute;
+	left: 200px;
+	height: 100%;
+}
+
+.frame-18 .d {
+	position: absolute;
+	right: -200px;
+	height: 100%;
+	z-index: 4;
+}
+
+.frame-18 {
+	overflow: visible;
+}
+
+.frame-19 img {
+	opacity: 1;
+}
+
+.frame-19 .a {
+	position: absolute;
+	right: -200px;
+	height: 100%;
+	z-index: 3;
+}
+
+.frame-19 {
+	overflow: visible;
+}
+
+.frame-19 h4 {
+	position: absolute;
+	top: 30px;
+	left:200px;
+	z-index: 4;
+	color: #F6B432;
+}
+
+.frame-19 .b {
+	position: absolute;
+	left: 250px;
+	z-index: 3;
+	top: 285px;
+	height: 450px;
+}
+
+.frame-19 p {
+	position: absolute;
+	left: 270px;
+	width:450px;
+	top: 415px;
+	z-index: 4;
+	text-align: center;
+}
+
+.frame-20 h4 {
+	position: absolute;
+	top: 50px;
+	left: 350px;
+	z-index: 4;
+	color: #F6B432;
+}
+
+.frame-20 img{
+	width: 600px;
+	position: absolute;
+	z-index: 3;
+}
+
+.frame-20 .a {
+	top: 70px;
+	right:270px;
+}
+
+.frame-20 .b {
+	bottom: 70px;
+	right:270px;
+}
+
+.frame-20 p {
+	position: absolute;
+	left: 350px;
+	width: 400px;
+	top: 350px;
+	z-index: 4;
+}
+
+.frame-20 svg {
+	position: absolute;
+	top: 0;
+	right: -100px;
+	z-index: 2;
+}
+
+.frame-20 {
+	overflow: visible;
+}
+
+.frame-21 img {
+	width: 1000px;
+	position: absolute;
+	z-index: 1;
+}
+
+.frame-21 h4 {
+	position: absolute;
+	bottom: 170px;
+	left: 50px;
+	z-index: 2;
+	color: #F6B432;
+}
+
+.frame-21 h3 {
+color: #F6B432;
+	position: absolute;
+	left: 600px;
+	width: 800px;
+	bottom: 230px;
+	z-index: 2;
+	font-size: 50px;
+}
+
+.frame-21 p {
+	position: absolute;
+	left: 1050px;
+	width: 400px;
+	top: 50px;
+	z-index: 2;
+
+}
+
+.frame-21 {
+	overflow: visible;
+}
+
+.frame-22 svg {
+	position: absolute;
+	top: 0;
+	left: -40px;
+	z-index: 1;
+	height: 100%;
+}
+
+.frame-22 h4 {
+	position: absolute;
+	top: 10px;
+	left: 300px;
+	z-index: 2;
+	color: #F6B432;
+}
+
+.frame-22 img {
+	width: 600px;
+	position: absolute;
+	z-index: 2;
+	left: 100px;
+	top: 150px;
+}
+
+.frame-22 .a {
+	top: 500px;
+	left: 100px;
+	width: 600px;
+	position: absolute;
+	z-index: 2;
+}
+
+.frame-22 .b {
+	top: 200px;
+	right: 200px;
+	width: 600px;
+	position: absolute;
+	z-index: 2;
+}
+
+.frame-22 {
+	overflow: visible;
+}
+
+.frame-23 img {
+opacity: 1;
+}
+
+.frame-23 h3 {
+	position: absolute;
+	bottom: 80px;
+	left: 50px;
+	z-index: 4;
+	width: 1200px;
+	
+}
+
+.frame-23 .a {
+	position: absolute;
+	left: -300px;
+	top: -50px;
+	z-index: 3;
+	width: 700px;
+}
+
+.frame-23 .b {
+	position: absolute;
+	right: -300px;
+	top: 0;
+	z-index: 3;
+	height: 100%;
+
+}
+
+.frame-23 {
+	overflow: visible;
+}
+
+.frame-24 .a {
+	position: absolute;
+	top: 50px;
+	left: 200px;
+	height: 300px;
+	z-index: 2;
+}
+
+.frame-24 .b {
+	position: absolute;
+	top: 50px;
+	left: 430px;
+	height: 300px;
+	z-index: 2;
+}
+
+.frame-24 .c {
+	position: absolute;
+	top: 360px;
+	left: 200px;
+	width: 673px;
+	z-index: 2;
+}
+
+.frame-24 h4 {
+	position: absolute;
+	top: 70px;
+	left: 930px;;
+	z-index: 2;
+	color: #7C2B88;
+}
+
+.frame-24 .d {
+	position: absolute;
+	top: 50px;
+	left: 930px;
+	width: 500px;
+	z-index: 2;
+	font-weight: bold;
+	font-size: 50px;
+}
+
+.frame-24 .e {
+	position: absolute;
+	top: 370px;
+	left: 930px;
+	width: 500px;
+	z-index: 2;
+}
+
+.frame-25 .e {
+	position: absolute;
+	top: 0;
+	left: 0px;
+	height: 100%;
+	z-index: 4;
+}
+
+.frame-25 .c {
+	position: absolute;
+	top: 100px;
+	left: 100px;
+	height: 300px;
+	z-index: 1;
+}
+
+.frame-25 .d {
+	position: absolute;
+	top: 100px;
+	left: 400px;
+	height: 300px;
+	z-index: 1;
+}
+
+.frame-25 h2 {
+	position: absolute;
+	top: 350px;
+	left: 200px;
+	z-index: 4;
+	color: #F6B432;
+	font-size: 150px;
+}
+
+.frame-25 .a {
+	position: absolute;
+	top: 530px;
+	left: 200px;
+	z-index: 4;
+}
+
+.frame-25 .b {
+	position: absolute;
+	top: 300px;
+	right: 200px;
+	width: 300px;
+	z-index: 4;
+	text-align: right;
+
+}
+
+.frame-25 .f {
+	position: absolute;
+	top: 0;
+	right: 0px;
+	z-index: 4;
+}
+
+.frame-25 .g {
+	position: absolute;
+	bottom: 0;
+	left: 300px;
+	z-index: 1;
+}
+
+.frame-25 {
+	overflow: visible;
+}
+
+.frame-26 p {
+	position: absolute;
+	text-align: center;
+	top: 40%;
+	left: 34%;
+	width: 810px;
+	transform: translate(-50%, -50%);
+}
+
+.frame-26 .a {
+	position: absolute;
+	top: 0;
+	width: 1000px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.frame-26 .b {
+	position: absolute;
+	right: -50px;
+	height: 100%;
+}
+
+.frame-27 h2 {
+	position: absolute;
+	top: 30%;
+	left: 9%;
+	transform: translate(-50%, -50%);
+	color: #000;
+	width: 1300px;
+	text-align: center;
+}
+
+/* Utility: image helper (optional) */
+
+.frame-18,
+.frame-19,
+.frame-20,
+.frame-21,
+.frame-22,
+.frame-23,
+.frame-24,
+.frame-25,
+.frame-26,
+.frame-27,
+.frame-28,
+.frame-29,
+.frame-30 {
+	background: #E5E0D5;
+}
+
+.frame-18 p,
+.frame-19 p,
+.frame-20 p,
+.frame-21 p,
+.frame-22 p,
+.frame-23 p,
+.frame-24 p,
+.frame-25 p,
+.frame-26 p,
+.frame-27 p,
+.frame-28 p,
+.frame-29 p,
+.frame-30 p {
+	color: #000;
+}
+
+/* Scrollbar styling */
+.frames::-webkit-scrollbar {
+	height: 12px;
+}
+
+.frames::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 6px;
+}
+
+/* Custom fixed scrollbar (thin line with draggable ball and stops) */
+#custom-scrollbar {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 12px;
+	height: 22px;
+	pointer-events: auto;
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cs-track {
+	position: relative;
+	width: calc(100% - 80px); /* leave margin left/right */
+	max-width: 1400px;
+	height: 4px;
+	background: #fff;
+	border-radius: 2px;
+	box-sizing: border-box;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.cs-thumb {
+	/* hide the default thumb since cart replaces it visually */
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.cs-stops {
+	position: absolute;
+	inset: 0;
+	pointer-events: none; /* individual stops enable pointer events */
+}
+
+.cs-stop {
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 4px;
+	height: 25px;
+	border-radius: 2px;
+	background: rgba(255,255,255);
+
+	box-shadow: 0 1px 2px rgba(0,0,0,0.6);
+	pointer-events: auto;
+	cursor: pointer;
+}
+
+.cs-stop.small { width:6px; height:6px; background: rgba(255,255,255,0.45);} 
+
+@media (max-width: 600px) {
+	#custom-scrollbar { bottom: 8px; }
+	.cs-track { width: calc(100% - 40px); }
+}
+
+/* cart riding the track */
+
+#cs-cart {
+	position: absolute;
+	top: 50%; /* vertically centered on the track */
+	left: 0px;
+	width: 90px; /* bigger cart */
+	height: auto;
+	transform: translate(-50%, -100%);
+	pointer-events: auto; /* make it grabable */
+	z-index: 6;
+	cursor: grab;
+}
+
+/* reduce cart size on very small screens */
+@media (max-width: 420px) {
+	#cs-cart { width: 40px; }
+}
+
+/* disable default image dragging / selection on the cart */
+#cs-cart, #cs-cart * {
+	-webkit-user-drag: none;
+
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	touch-action: none;
+}
+
+/* Popup buttons that appear above the minecart */
+#cs-popup-buttons {
+	position: absolute;
+	top: 0;
+	/* align via JS: left set to cart center; translate to center and lift above track */
+	transform: translate(-50%, -350%);
+	z-index: 10;
+	display: none; /* hidden by default; shown when frame mapping matches */
+	pointer-events: none; /* allow underlying track clicks except on buttons */
+}
+
+#cs-popup-buttons .btn {
+	appearance: none;
+	border: none;
+	border-radius: 50px;
+	padding: 10px 15px;
+	margin: 0 4px;
+	font-family: "Bahnschrift";
+	font-size: 20px;
+	line-height: 1;
+	white-space: nowrap; /* keep titles on one line */
+	overflow-wrap: normal;
+	word-break: normal;
+	hyphens: manual;
+	cursor: pointer;
+	background: #fff;
+	color: #000;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+	pointer-events: auto; /* buttons remain clickable */
+    border: 5px solid var(--popup-accent, #B4152A);
+    /* default: only the blinking border */
+    animation: csBtnBlink 2s ease-in-out infinite;
+}
+
+#cs-popup-buttons .btn:hover { filter: brightness(0.95); }
+
+/* Simple blinking border to signal clickability */
+@keyframes csBtnBlink {
+	0%, 100% { border-color: var(--popup-accent-weak, rgba(183, 16, 39, 0.35)); }
+	50% { border-color: var(--popup-accent, #B4152A); }
+}
+
+/* Entrance animation: subtle fade + slide-up */
+@keyframes csBtnAppear {
+	from {
+		opacity: 0;
+		transform: translateY(8px) scale(0.98);
+		filter: none;
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+		filter: none;
+	}
+}
+
+/* Apply entrance + keep blink; allow per-button delay via CSS var */
+#cs-popup-buttons .btn-appear {
+	--appear-delay: 0s;
+	--appear-duration: 280ms;
+	animation: csBtnAppear var(--appear-duration) ease-out var(--appear-delay) both, csBtnBlink 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#cs-popup-buttons .btn-appear {
+		--appear-duration: 1ms;
+	}
+}
+
+/* Exit animation: fade + slide-down */
+@keyframes csBtnDisappear {
+	from {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+		filter: none;
+	}
+	to {
+		opacity: 0;
+		transform: translateY(8px) scale(0.98);
+		filter: none;
+	}
+}
+
+/* Apply exit animation; override blink during exit */
+#cs-popup-buttons .btn-disappear {
+	--disappear-delay: 0s;
+	--disappear-duration: 220ms;
+	animation: csBtnDisappear var(--disappear-duration) ease-in var(--disappear-delay) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#cs-popup-buttons .btn-disappear {
+		--disappear-duration: 1ms;
+	}
+}
+
+/* Full-page noise/grain overlay video */
+#noise-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 9998; /* above most content but below any system UI */
+	pointer-events: none; /* do not block interaction */
+	overflow: hidden;
+}
+
+#noise-overlay video {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0.12; /* subtle grain */
+	mix-blend-mode:overlay; /* blend over both light/dark bg */
+	filter: none; /* adjust if needed: contrast(110%) */
+	
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#noise-overlay { display: none; }
+}
+
+/* Reveal/fade-in for headings and paragraphs when they enter the viewport */
+.frames h1.reveal,
+.frames h2.reveal,
+.frames h3.reveal,
+.frames h4.reveal,
+.frames h5.reveal,
+.frames h6.reveal,
+.frames p.reveal {
+	opacity: 0;
+	transform: translateY(30px);
+	transition: opacity 6000ms cubic-bezier(.2,.9,.2,1), transform 3000ms cubic-bezier(.2,.9,.2,1);
+	will-change: opacity, transform;
+}
+
+.frames h1.h4-visible,
+.frames h2.h4-visible,
+.frames h3.h4-visible,
+.frames h4.h4-visible,
+.frames h5.h4-visible,
+.frames h6.h4-visible,
+.frames p.h4-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Iframe popup overlay */
+.iframe-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0,0,0,0.6);
+	z-index: 10000;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	padding: 2vw;
+}
+
+.iframe-overlay.show { display: flex; }
+
+.iframe-modal {
+	position: relative;
+	width: 90vw;
+	height: 90vh;
+	max-width: 1280px;
+	background: #111;
+	border-radius: 8px;
+	box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+	overflow: hidden;
+}
+
+/* Frame 17: full-screen crossfade between two images */
+.frame-17 {
+	position: relative;
+	overflow: hidden;
+}
+.frame-17 .f17-img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	pointer-events: none;
+}
+.frame-17 .f17-base {
+	z-index: 1;
+	opacity: 1;
+}
+.frame-17 .f17-overlay {
+	z-index: 2;
+	opacity: 0; /* starts invisible, will fade in with scroll */
+	transition: opacity 0ms linear; /* JS drives opacity directly for immediate response */
+}
+
+.iframe-modal iframe {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	background: #000;
+}
+
+.iframe-close {
+	position: absolute;
+	top: 8px;
+	right: 12px;
+	z-index: 2;
+	width: 40px;
+	height: 40px;
+	border: none;
+	border-radius: 50%;
+	background: rgba(255,255,255,0.9);
+	color: #000;
+	font-size: 25px;
+	line-height: 0px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.iframe-close:hover { filter: brightness(0.9); }
+

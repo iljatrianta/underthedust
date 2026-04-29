@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under the Dust</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://use.typekit.net/cqg3hec.css">
+    <link rel="stylesheet" href="https://use.typekit.net/cqg3hec.css">
+
+</head>
+
+<body>
+
+    <!-- Noise overlay video -->
+    <div id="noise-overlay" aria-hidden="true">
+        <video id="noise-video" src="assets/noise.mp4" autoplay muted loop playsinline data-playback-rate="0.5"></video>
+    </div>
+    <div class="frames" id="frames">
+
+        <section class="frame frame-1">
+            <img src="assets/img1.png" class="bg">
+            <div class="text">
+                <p>-HEERLEN-</p>
+                <h1>UNDER THE DUST</h1>
+                <p>scroll or swipe to start</p>
+            </div>
+        </section>
+
+        <section class="frame frame-2">
+            <!-- Fullscreen YouTube embed (matches frame 4 behavior) -->
+            <iframe id="yt-frame-2" class="yt-embed" width="560" height="315"
+                src="https://www.youtube-nocookie.com/embed/PJmLE3859j8?autoplay=1&controls=0&disablekb=1&fs=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&iv_load_policy=3&cc_load_policy=0"
+                title="YouTube video" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+
+        <section class="frame frame-3">
+            <p>From the end of the <span>19th CENTURY </span>, the growth of the mining sector attracted many people
+                to South Limburg. There was a great demand for work, and mining provided it.</p>
+            <img src="assets/img2.png">
+            <svg xmlns="http://www.w3.org/2000/svg" width="506" height="326" viewBox="0 0 506 326" fill="none">
+                <path d="M503.182 138.992L646.593 -2L0.211277 -0.412117L202.534 325.552L503.182 138.992Z" fill="#FFC95E"
+                    stroke="#FFC95E" stroke-width="0.23541" />
+            </svg>
+        </section>
+
+        <section class="frame frame-4">
+            <!-- Centered YouTube embed with custom controls -->
+            <iframe id="yt-frame-4" class="yt-embed" width="560" height="315"
+                src="https://www.youtube-nocookie.com/embed/WHOqYKPdOEA?autoplay=1&controls=0&disablekb=1&fs=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&iv_load_policy=3&cc_load_policy=0"
+                title="YouTube video" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+
+        <section class="frame frame-5">
+            <img src="assets/img3.png" class="bg">
+            <h4>1965</h4>
+            <p>The Dutch government announced the closure of all coal mines in South Limburg.</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="135" height="1024" viewBox="0 0 135 1024" fill="none">
+                <path
+                    d="M20.2764 -0.000229016L99.4006 0.399483L134.393 1030.58L-9.30347e-05 1029.9L20.2764 -0.000229016Z"
+                    fill="#B4152A" />
+            </svg>
+        </section>
+
+        <section class="frame frame-6">
+            <p>The discovery of natural gas, cheap coal from abroad, and changing energy sources.</p>
+            <h2>Mines became economically unsustainable.</h2>
+            <img src="assets/img4.png">
+        </section>
+
+        <section class="frame frame-7">
+            <img src="assets/img5.png" class="bg">
+            <p>Around <span>1970</span>, shortly after the mine closures, a clear drug problem became visible in South
+                Limburg.
+            </p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="620" height="282" viewBox="0 0 620 282" fill="none">
+                <path
+                    d="M122.778 179.509L-0.000370507 281.162L298.493 281.163L619.499 281.163L417.417 6.92272e-05L122.778 179.509Z"
+                    fill="#1F88CC" />
+            </svg>
+        </section>
+
+        <section class="frame frame-8">
+            <p>Due to massive <span>unemployment</span>, a lack of future prospects, and the collapse of social
+                structures, especially young people and former miners became vulnerable.
+                <br><br>
+                Soft and hard drugs emerged as an escape from boredom, frustration, and mental health issues.
+            </p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="365" height="1024" viewBox="0 0 365 1024" fill="none">
+                <path
+                    d="M312.307 94.1778L270.521 -186.419L108.449 -242.618L-0.000116331 50.9145L39.4455 361.185L48.7527 830.892L91.8861 1200.16L207.084 1349.33L341.825 1272.2L364.674 931.975L312.678 531.649L312.307 94.1778Z"
+                    fill="#1F88CC" />
+            </svg>
+        </section>
+
+        <section class="frame frame-9">
+            <img src="assets/img6.png" class="bg">
+            <h2>ADDICTION</h2>
+            <p>Spread quickly in some neighborhoods, making the social consequences of the mine closures felt for
+                many years.</p>
+        </section>
+
+        <section class="frame frame-10">
+            <h4>1974</h4>
+            <p>Mine Oranje-Nassau I in Heerlen closed its doors as the very last coal mine in the Netherlands.</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="885" height="217" viewBox="0 0 885 217" fill="none">
+                <path
+                    d="M651.08 232L854.578 232L885 159.566L726.202 4.71526e-05L553.016 25.2343L292.58 9.24414e-06L86.5932 25.2343L6.42812e-06 158.471L30.4406 232L218.718 232L443.636 232L651.08 232Z"
+                    fill="#7C2B88" />
+            </svg>
+            <img src="assets/img7.png">
+        </section>
+
+        <section class="frame frame-11">
+            <p class="a">The end of a</p>
+            <h4>70</h4>
+            <p class="b">year era</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="247" height="1024" viewBox="0 0 247 1024" fill="none">
+                <path d="M219.297 1024H73.8752L0 -2H247L219.297 1024Z" fill="#7C2B88" />
+            </svg>
+        </section>
+
+        <section class="frame frame-12">
+            <p>The closure marked not only the end of mining, but also the definitive beginning of an uncertain future
+                for the region and its residents.</p>
+            <svg class="a" xmlns="http://www.w3.org/2000/svg" width="486" height="327" viewBox="0 0 486 327"
+                fill="none">
+                <path
+                    d="M379.702 327L465.829 301.39L486 133.922L398.796 1.70033e-05L303.69 21.1788L160.671 9.33595e-07L47.5529 21.1787L-8.54694e-06 133.003L20.8944 280.407L123.926 327L246.657 298.511L379.702 327Z"
+                    fill="#1F88CC" />
+            </svg>
+            <div class="images">
+                <img src="assets/img8.png">
+                <img src="assets/img9.png">
+            </div>
+            <svg class="b" xmlns="http://www.w3.org/2000/svg" width="486" height="327" viewBox="0 0 486 327"
+                fill="none">
+                <path
+                    d="M379.702 327L465.829 301.39L486 133.922L398.796 2.46327e-05L303.69 21.1788L160.671 8.56299e-06L47.5529 21.1787L-8.54694e-06 133.003L20.8944 280.407L123.926 327L246.657 298.511L379.702 327Z"
+                    fill="#1F88CC" />
+            </svg>
+        </section>
+
+        <section class="frame frame-13">
+            <h3>Entire neighborhoods lost their economic foundation.<br><br>
+                Families were left without work, income, and future prospects.</h3>
+            <svg class="blue" xmlns="http://www.w3.org/2000/svg" width="365" height="1024" viewBox="0 0 365 1024"
+                fill="none">
+                <path
+                    d="M312.308 147.178L270.522 -133.419L108.45 -189.618L0.000860231 103.915L39.4464 414.185L48.7537 883.892L91.8871 1253.16L207.085 1402.33L341.826 1325.2L364.675 984.975L312.679 584.649L312.308 147.178Z"
+                    fill="#1F88CC" />
+            </svg>
+            <p>The economic decline created tensions in neighborhoods.
+                <br><br>
+                The result was growing social problems and a deteriorating living environment.
+            </p>
+            <svg class="pink" xmlns="http://www.w3.org/2000/svg" width="150" height="1024" viewBox="0 0 150 1024"
+                fill="none">
+                <path
+                    d="M1.63567e-05 823.615L22.1961 1024.86L149.785 1024.86L149.783 902.302L149.783 667.802L149.784 301.802L149.783 7.80148L149.783 -13.6986L60.7936 -12.1904L10.1275 227.246L33.7524 513.889L1.63567e-05 823.615Z"
+                    fill="#E74477" />
+            </svg>
+        </section>
+
+        <section class="frame frame-14">
+            <img src="assets/img10.png" class="bg">
+            <h4>1980</h4>
+            <p>In the 1980s, the drug problem in South Limburg increased sharply.<br><br>
+                Persistent unemployment, poverty, and hopelessness made urban areas especially vulnerable.</p>
+        </section>
+
+        <section class="frame frame-15">
+            <svg xmlns="http://www.w3.org/2000/svg" width="670" height="1024" viewBox="0 0 670 1024" fill="none">
+                <path
+                    d="M311.967 40.7115L193.498 -217.059L22.1816 -225.772L0.000524709 86.3668L124.507 373.285L264.589 821.713L409.109 1164.26L561.375 1275.33L669.222 1163.64L648.598 1063.46L648.6 919.958L409.109 474.459L311.967 40.7115Z"
+                    fill="#E74477" />
+            </svg>
+            <p>Hard drugs became increasingly visible in public spaces.<br><br>
+                Illegal trade and addiction grew, partly due to the lack of jobs and guidance.</p>
+            <img class="a" src="assets/img14.png">
+            <img class="b" src="assets/img15.png">
+
+        </section>
+
+        <section class="frame frame-16">
+            <img src="assets/img16.png" class="bg">
+            <p>Prostitution also increased during this period. For some residents, it became a way to survive in a
+                region where regular work was scarce.</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="620" height="270" viewBox="0 0 620 270" fill="none">
+                <path
+                    d="M496.286 90.7563L619.494 -10.3761L321.003 -11.6407L0.000305176 -13.0002L200.89 269.016L496.286 90.7563Z"
+                    fill="#E74477" />
+            </svg>
+        </section>
+
+        <section class="frame frame-17">
+            <!-- Frame 17: Crossfade where img31 becomes visible over img32 as you scroll -->
+            <img id="frame17-base" src="assets/img32.png" alt="Frame 17 base image" class="f17-img f17-base">
+            <img id="frame17-overlay" src="assets/img31.png" alt="Frame 17 overlay image" class="f17-img f17-overlay">
+        </section>
+
+        <section class="frame frame-18">
+            <p>In recent years, Heerlen has actively repositioned itself to strengthen the city's image. Culture plays
+                a major role in this.<br><br>
+                Parkstad Limburg Theaters serves as a cultural anchor and attracts visitors from both inside and
+                outside the region. </p>
+            <img class="a" src="assets/img17.png">
+            <img class="b" src="assets/img18.png">
+            <svg class="c" xmlns="http://www.w3.org/2000/svg" width="1080" height="1024" viewBox="0 0 1080 1024"
+                fill="none">
+                <path d="M281.5 676.281L0 1088H339.5L557.5 753.312L913.5 294.312L1080 0H710.5L557.5 416L281.5 676.281Z"
+                    fill="#F6B432" />
+            </svg>
+            <svg class="d" xmlns="http://www.w3.org/2000/svg" width="365" height="1024" viewBox="0 0 365 1024"
+                fill="none">
+                <path
+                    d="M312.308 64.1778L270.522 -216.419L108.45 -272.618L0.000860231 20.9145L39.4464 331.185L48.7537 800.892L91.8871 1170.16L207.085 1319.33L341.826 1242.2L364.675 901.975L312.679 501.649L312.308 64.1778Z"
+                    fill="#F6B432" />
+            </svg>
+        </section>
+
+        <section class="frame frame-19">
+            <img src="assets/img19.png" class="bg">
+            <h4>1991</h4>
+            <p>The international festival Cultura Nova also puts Heerlen on the map every year as a city of performing
+                arts and experimentation.</p>
+            <svg class="a" xmlns="http://www.w3.org/2000/svg" width="365" height="1024" viewBox="0 0 365 1024"
+                fill="none">
+                <path
+                    d="M52.3659 140.178L94.1522 -140.419L256.223 -196.618L364.673 96.9145L325.227 407.185L315.92 876.892L272.787 1246.16L157.588 1395.33L22.8475 1318.2L-0.000976323 977.975L51.9945 577.649L52.3659 140.178Z"
+                    fill="#F6B432" />
+            </svg>
+            <svg class="b" xmlns="http://www.w3.org/2000/svg" width="486" height="280" viewBox="0 0 486 280"
+                fill="none">
+                <path
+                    d="M379.702 280L465.829 258.071L486 114.673L465.829 44.5L398.796 2.46327e-05L303.69 18.1347L160.671 8.56299e-06L47.5529 18.1347L-1.17048e-05 113.886L20.8944 240.104L123.926 280L246.657 255.606L379.702 280Z"
+                    fill="#F6B432" />
+            </svg>
+        </section>
+
+        <section class="frame frame-20">
+            <h4>2008</h4>
+            <p>Youth and urban culture also get room to grow.
+                <br><br>
+                One example is the Street Dance Festival, which shows that Heerlen has not only a past, but also a
+                contemporary and creative future.
+            </p>
+            <img class="a" src="assets/img20.png">
+            <img class="b" src="assets/img21.png">
+            <svg xmlns="http://www.w3.org/2000/svg" width="619" height="282" viewBox="0 0 619 282" fill="none">
+                <path d="M123.11 98.6938L1.17938e-07 -5.30189L298.253 -6.6022L619 -8.00025L418.271 282L123.11 98.6938Z"
+                    fill="#F6B432" />
+            </svg>
+        </section>
+
+        <section class="frame frame-21">
+            <img src="assets/img22.png">
+            <h4>2019</h4>
+            <h3>The station and the Maankwartier district were renewed to reconnect Heerlen with itself.</h3>
+            <p>For years, the railway formed a physical and social divide in the city.
+                <br><br>
+                With the opening of the new station and Maankwartier in 2019, that barrier was broken and space
+                emerged for meeting, housing, culture, and future-oriented urban development.
+            </p>
+        </section>
+
+        <section class="frame frame-22">
+            <svg xmlns="http://www.w3.org/2000/svg" width="365" height="1024" viewBox="0 0 365 1024" fill="none">
+                <path
+                    d="M52.3659 -10.8222L94.1522 -291.419L256.223 -347.618L364.673 -54.0855L325.227 256.185L315.92 725.892L272.787 1095.16L157.588 1244.33L22.8475 1167.2L-0.000976323 826.975L51.9945 426.649L52.3659 -10.8222Z"
+                    fill="#F6B432" />
+            </svg>
+            <img src="assets/img23.png">
+            <h4>2025</h4>
+            <p class="a">In 2025, the Dutch national government introduced a new compensation scheme for mining damage
+                in Limburg. The scheme was developed together with the province and involved municipalities.</p>
+            <p class="b">Many homes in South Limburg suffer from cracks, subsidence, and structural problems caused by
+                former mining in the region.
+                <br><br>
+                From late 2025 / early 2026, private homeowners can report mining damage via the Institute for
+                Environment, People and Mining Limburg.
+                <br><br>
+                They can apply for compensation or repair, usually up to around €10,000, with higher amounts for
+                severe damage.
+        </section>
+
+        <section class="frame frame-23">
+            <img src="assets/img24.png" class="bg">
+            <h3>Fifty years after the closure of Limburg's coal mines, residents can finally receive compensation for
+                mining damage. </h3>
+            <svg class="a" xmlns="http://www.w3.org/2000/svg" width="1045" height="282" viewBox="0 0 1045 282"
+                fill="none">
+                <path
+                    d="M207.835 98.6938L1.17938e-07 -5.30189L503.512 -6.60221L1045 -8.00026L706.127 282L207.835 98.6938Z"
+                    fill="#F6B432" />
+            </svg>
+            <svg class="b" xmlns="http://www.w3.org/2000/svg" width="452" height="1024" viewBox="0 0 452 1024"
+                fill="none">
+                <path
+                    d="M-0.000880289 839.978L72.5315 1050.08L451.538 1054.26L447.514 926.754L439.826 682.783L427.827 302.002L418.186 -3.87133L417.481 -26.2397L153.184 -27.5883L10.53 219.857L90.1065 518.85L-0.000880289 839.978Z"
+                    fill="#7C2B88" />
+            </svg>
+        </section>
+
+        <section class="frame frame-24">
+            <img src="assets/img25.png" class="a">
+            <img src="assets/img26.png" class="b">
+            <img src="assets/img27.png" class="c">
+            <p class="d">Heerlen now</p>
+            <h4>2026</h4>
+            <p class="e">Heerlen's image is still strongly shaped by socio-economic indicators.
+                <br><br>
+                Despite investments in renewal, a persistent image of disadvantage remains, rooted in the aftermath of
+                the mine closures. This image is therefore not just a feeling, but also based on measurable data and
+                policy.
+            </p>
+        </section>
+
+        <section class="frame frame-25">
+            <h2>2021 - 2045</h2>
+            <p class="a">Future Heerlen</p>
+            <p class="b">Since 2021, Heerlen-North has been working on a large-scale future plan through 2045. <br><br>
+                The plan is part of the National Program Heerlen-North.</p>
+            <img src="assets/img28.png" class="c">
+            <img src="assets/img29.png" class="d">
+            <svg class="e" xmlns="http://www.w3.org/2000/svg" width="151" height="1024" viewBox="0 0 151 1024"
+                fill="none">
+                <path
+                    d="M150.352 179.41L128.292 -29.8343L0.701662 -29.7474L0.620603 97.6909L0.462034 341.528L0.21416 722.101L0.0157595 1027.81L0.0012278 1050.16L88.993 1048.54L139.822 799.531L116.39 501.491L150.352 179.41Z"
+                    fill="#F6B432" />
+            </svg>"
+
+            <svg class="f" xmlns="http://www.w3.org/2000/svg" width="1045" height="226" viewBox="0 0 1045 226"
+                fill="none">
+                <path
+                    d="M207.835 42.6938L1.17938e-07 -61.3019L503.512 -62.6022L1045 -64.0003L706.127 226L207.835 42.6938Z"
+                    fill="#F6B432" />
+            </svg>
+
+            <svg class="g" xmlns="http://www.w3.org/2000/svg" width="2072" height="272" viewBox="0 0 2072 272"
+                fill="none">
+                <path d="M1659.91 183.306L2072 287.302L1073.65 288.602L0 290L671.909 -3.03528e-05L1659.91 183.306Z"
+                    fill="#F6B432" />
+            </svg>
+
+        </section>
+
+        <section class="frame frame-26">
+            <p>Black gold once formed the foundation of work and identity. After the mine closures, a region remained
+                that had to reinvent itself.
+                <br><br>
+                Decades of unemployment and deprivation followed, but the story did not end there.
+            </p>
+            <svg class="a" xmlns="http://www.w3.org/2000/svg" width="1611" height="149" viewBox="0 0 1611 149"
+                fill="none">
+                <path
+                    d="M1258.64 149L1544.14 123.39L1611 -44.0781L1321.93 -178L1006.68 -156.821L532.595 -178L157.629 -156.821L2.19706e-05 -44.9975L69.2612 102.407L410.79 149L817.621 120.511L1258.64 149Z"
+                    fill="#F6B432" />
+            </svg>
+            <svg class="b" xmlns="http://www.w3.org/2000/svg" width="151" height="1024" viewBox="0 0 151 1024"
+                fill="none">
+                <path
+                    d="M-0.000880289 182.41L22.0594 -26.8343L149.65 -26.7474L149.731 100.691L149.89 344.528L150.137 725.101L150.336 1030.81L150.35 1053.16L61.3586 1051.54L10.53 802.531L33.9613 504.491L-0.000880289 182.41Z"
+                    fill="#F6B432" />
+            </svg>
+        </section>
+
+        <section class="frame frame-27">
+            <img src="assets/img30.png" class="bg">
+            <h2>The coal is gone, the stories remain. But on the same ground, space is emerging for a new future.
+            </h2>
+        </section>
+    </div>
+
+
+
+
+    <!-- Iframe Popup Overlay -->
+    <div id="popup-iframe-overlay" class="iframe-overlay" aria-hidden="true">
+        <div class="iframe-modal" role="dialog" aria-modal="true" aria-label="Popup">
+            <button type="button" class="iframe-close" id="popup-iframe-close" aria-label="Close popup">&times;</button>
+            <iframe id="popup-iframe" title="Popup content" src="" allow="autoplay; fullscreen" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <!-- Custom horizontal scrollbar -->
+    <div id="custom-scrollbar" aria-hidden="false">
+        <div class="cs-track" id="cs-track">
+            <div class="cs-thumb" id="cs-thumb" role="slider" aria-valuemin="1" aria-valuemax="27" aria-valuenow="1"
+                tabindex="0"></div>
+            <img id="cs-cart" src="assets/minecart.svg" alt="cart" draggable="false" />
+            <div class="cs-stops" id="cs-stops" aria-hidden="false"></div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
